@@ -2,7 +2,7 @@ const cors = require('cors');
 const express = require('express');
 const app = express()
 const port = process.env.PORT || 5000
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 
 //middleware
@@ -16,27 +16,36 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 async function run() {
-    try {
-      await client.connect();
-      const productCollection = client.db("warehouseProducts").collection('products');
-      app.get('/products',async(req,res)=>{
-        const query = {};
-        const cursor = productCollection.find(query);
-        const result = await cursor.toArray()
-        res.send(result)
-      }) 
+  try {
+    await client.connect();
+    const productCollection = client.db("warehouseProducts").collection('products');
+    // get all product
+    app.get('/products', async (req, res) => {
+      const query = {};
+      const cursor = productCollection.find(query);
+      const result = await cursor.toArray()
+      res.send(result)
+    });
+    // get product by id
+    app.get('/product/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) }
+      const result = await productCollection.findOne(query);
+      res.send(result)
+
+    })
 
 
-    } finally {
+  } finally {
     //   await client.close();
-    }
+  }
 }
-  run().catch(console.dir);
+run().catch(console.dir);
 
 
-app.get('/',(req,res)=>{
-    res.send('elecktric warhouse server is running')
+app.get('/', (req, res) => {
+  res.send('elecktric warhouse server is running')
 })
-app.listen(port,()=>{
-    console.log('lesten port ',port);
+app.listen(port, () => {
+  console.log('lesten port ', port);
 })
