@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ItemsCard.css'
 const ItemsCard = ({item}) => {
-    const {img,description,price,quantity,supplier,name}=item
+    const navigate= useNavigate()
+    const {img,description,price,quantity,supplier,name,_id}=item
     return (
         <div style={{marginBottom:'50px'}} className='card-body d-flex justify-content-center '>
             <div className="card">
@@ -18,7 +20,7 @@ const ItemsCard = ({item}) => {
                             <h3>{supplier} <br /> <span>supplier</span></h3>
                         </div>
                         <div className="action-btn">
-                            <button>update</button>
+                            <button onClick={()=>navigate(`/inventory/${_id}`)}>update</button>
                         </div>
                     </div>
                 </div>

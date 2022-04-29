@@ -8,19 +8,22 @@ const InventoryItems = () => {
        .then(res => res.json())
        .then(data => setItems(data))
     }, [])
+    const cItems = items.slice(0,6)
     return (
         <div>
             <h4 className='text-center my-5'>Inventory Items</h4>
             <div className='d-flex flex-wrap justify-content-between mt-5'>
                 {
-                    items.map(item => <ItemsCard
+                    cItems.map(item => <ItemsCard
                     key={item._id}
                     item={item}
                     >
                     </ItemsCard>)
                 }
             </div>
+
         </div>
     );
 };
+
 export default InventoryItems;

@@ -1,0 +1,19 @@
+.input-felid{
+    width: 60%;
+}
+.login-btn{
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #FC9314;
+    color: #fff;
+}
+@media only screen and (max-width: 600px) {
+    .input-felid{
+        width: 100%;
+    }
+  }
