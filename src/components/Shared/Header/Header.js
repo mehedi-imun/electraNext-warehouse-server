@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png'
 const Header = () => {
     return (
-        <Navbar style={{backgroundColor:'rgba(0, 0, 0, 0.5)',backdropFilter:'5px'}} sticky='top'  collapseOnSelect expand="lg"  variant='light'>
+        <Navbar style={{backgroundColor:'rgba(0, 0, 0, 0.5)',backdropFilter: "blur(5px)"}} sticky='top'  collapseOnSelect expand="lg"  variant='light'>
             <Container>
                 <Navbar.Brand as={Link} to='/'>
                     <img  style={{ width: '120px' }} src={logo} alt="" />
