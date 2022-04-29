@@ -1,20 +1,55 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {useSignInWithGoogle  } from 'react-firebase-hooks/auth';
+import {useSignInWithEmailAndPassword, useSignInWithGoogle  } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../../images/google-logo.png'
+import PageTitle from '../../Shared/PageTittle/PageTitle';
 import './Login.css'
 import auth from '../../../Firebase.init';
 
 const Login = () => {
+    let errorTag;
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || "/";
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth)
+    // google signup 
+    const [signInWithGoogle, 
+        googleUser, googleLoading, 
+        googleError] = useSignInWithGoogle(auth);
 
-    // get input value
+    // sign in with email and pass auth 
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    // get input value and log in user
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit =async (data) => {
+        const {email,password} = data;
+        await signInWithEmailAndPassword(email, password)
+
+    };
+
+    // loading
+    if (googleLoading || loading) {
+        return <p>loading..</p>
+    }
+       // error tag 
+
+    if (error) {
+
+        errorTag = <p className='text-danger'>Error: {error.message}</p>;
+
+    }
+    if(user ||googleUser){
+        navigate(from, { replace: true });
+        
+    }
+
+    
 
     // google auth
     const handleGoogleLogin = async () => {
@@ -23,7 +58,9 @@ const Login = () => {
 
     }
     return (
+        
         <div className='w-50 mx-auto '>
+            <PageTitle title='login'></PageTitle>
             <h4 className='text-center mt-5'>Log in</h4>
             <form className='d-flex flex-column mt-2 align-items-center' onSubmit={handleSubmit(onSubmit)}>
                 <input
@@ -34,10 +71,11 @@ const Login = () => {
 
                 />
                 <input type='password'
-                    {...register("Password", { required: true })}
+                    {...register("password", { required: true })}
                     placeholder='password'
                     className='mb-3  p-1 input-felid'
                 />
+                {errorTag}
 
                 <input type="submit" value='Login' className='login-btn input-felid' />
             </form>
@@ -59,6 +97,7 @@ const Login = () => {
                     continue with google
                 </button>
             </div>
+            
         </div>
     );
 };
