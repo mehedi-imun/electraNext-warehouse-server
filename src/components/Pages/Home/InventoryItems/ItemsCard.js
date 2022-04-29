@@ -15,7 +15,7 @@ const ItemsCard = ({item}) => {
                         <h2>{name.slice(0,20)}</h2>
                         <p>{description.slice(0,100)}</p>
                         <div className="data">
-                            <h3>{price} <br /> <span>Price</span></h3>
+                            <h3>$ {price} <br /> <span>Price</span></h3>
                             <h3>{quantity} <br /> <span>quantity</span></h3>
                             <h3>{supplier} <br /> <span>supplier</span></h3>
                         </div>
