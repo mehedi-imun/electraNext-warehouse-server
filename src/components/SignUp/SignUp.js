@@ -6,6 +6,8 @@ import PageTitle from '../Shared/PageTittle/PageTitle';
 import googleLogo from '../../images/google-logo.png'
 import { useForm } from 'react-hook-form';
 import { async } from '@firebase/util';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
     let errorTag;
     const location = useLocation()
@@ -32,21 +34,39 @@ const SignUp = () => {
 
     }
     // navigate user 
-    if(user || googleUser){
-        navigate(from, { replace: true });
+    if (user || googleUser) {
+        // navigate(from, { replace: true });
     }
+
     // get input value and create user
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
-        const { name,email,password,confirmPassword}=data;
-        if(password === confirmPassword){
+        const { name, email, password, confirmPassword } = data;
+        if (password === confirmPassword) {
             await createUserWithEmailAndPassword(email, password)
             await updateProfile({ displayName: name });
-            alert('successful create account');
-        }else{
-            alert('password not same')
+            await toast.success('successfully create account', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+
+        } else {
+            toast.error('password mismatch', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
-       
+
     }
 
 
@@ -97,14 +117,24 @@ const SignUp = () => {
             </div>
             <div className='d-flex justify-content-center '>
                 <button
-                    onClick={()=>handleGoogleLogin()}
+                    onClick={() => handleGoogleLogin()}
                     className=' input-felid btn bold border
                 '>
                     <img style={{ width: '40px' }} src={googleLogo} alt="" />
                     continue with google
                 </button>
             </div>
-            
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </div>
     );
 };
