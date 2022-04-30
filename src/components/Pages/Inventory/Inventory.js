@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import PageTitle from '../../Shared/PageTittle/PageTitle';
 
 const Inventory = () => {
     const { id } = useParams()
@@ -59,6 +60,7 @@ const Inventory = () => {
 
     return (
         <div>
+            <PageTitle title='inventory'></PageTitle>
             <div className='mt-5'>
                 <div style={{ marginBottom: '50px' }} className='card-body d-flex justify-content-center '>
                     <div className="card">
@@ -86,7 +88,7 @@ const Inventory = () => {
                 </div>
             </div>
             <div className='mt-5 mb-5'>
-                <h4 className='text-center my-5'>Add this item Quantity</h4>
+                <h4 className='text-center my-5'>Add Quantity this item </h4>
                 <form className='d-flex flex-column mt-2 w-75 mx-auto align-items-center' onSubmit={handleSubmit(onSubmit)}>
                     <input
                         className='mb-3  p-1 input-felid'
