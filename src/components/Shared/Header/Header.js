@@ -19,9 +19,16 @@ const Header = () => {
                     <Nav className="me-auto nav-link ">
                         <Nav.Link className='text-light' as={Link} to='/home' >Home</Nav.Link>
                         <Nav.Link className='text-light' as={Link} to='/blog' >Blog</Nav.Link>
+                        {user && <>
+                            <Nav.Link className='text-light' as={Link} to='/manageInventories' >Manage items</Nav.Link>
+                            <Nav.Link className='text-light' as={Link} to='/additem' >Add item</Nav.Link>
+                            <Nav.Link className='text-light' as={Link} to='/myitems' >My items</Nav.Link>
+                        </>}
+
+
                     </Nav>
                     <Nav>
-                    <span className='d-flex align-items-center text-white'>{user?.displayName}</span>
+                        <span className='d-flex align-items-center text-white'>{user?.displayName}</span>
                         <Nav.Link as={Link} to='/login' >
                             {user ? <>
                                 <button

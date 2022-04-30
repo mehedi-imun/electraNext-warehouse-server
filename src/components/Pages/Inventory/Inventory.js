@@ -18,7 +18,6 @@ const Inventory = () => {
     }, []);
 
     // increase quantity when click delivered btn
-
     const handleDelivered = (updatedQuantity) => {
         const newQuantity = updatedQuantity - 1
         const url = `http://localhost:5000/item/${id}`
