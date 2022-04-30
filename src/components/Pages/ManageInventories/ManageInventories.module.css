@@ -1,0 +1,38 @@
+.cardContainer {
+  width: 90%;
+  margin: 20px auto;
+}
+.cardDetails {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  /* box-shadow: 2px 2px 10px 40px ; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+  width: 500px;
+  height: 100px;
+}
+.cardDetails img {
+  width: 80px;
+  height: 80px;
+  border-radius: 20%;
+  border: 3px solid gray;
+}
+.cardDetails button {
+  background-color: #fc9314;
+  color: white;
+  font-size: 20px;
+}
+@media only screen and (max-width: 600px) {
+  .cardDetails {
+    width: 300px;
+    height: 100px;
+    font-size: 12px;
+    
+  }
+  .cardDetails h4{
+      font-size: 14px;
+  }
+}

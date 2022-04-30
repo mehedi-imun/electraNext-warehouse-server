@@ -7,7 +7,9 @@ import Login from './components/Pages/Login/Login';
 import NotFoundPage from './components/Pages/NotFoundPage/NotFoundPage';
 import RequireAuth from './components/Pages/RequireAuth/RequireAuth';
 import Header from './components/Shared/Header/Header';
-import SignUp from './components/SignUp/SignUp';
+import SignUp from './components/Pages/SignUp/SignUp';
+import ManageInventories from './components/Pages/ManageInventories/ManageInventories';
+import BLog from './components/Pages/Blog/BLog';
 
 function App() {
   return (
@@ -16,9 +18,15 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/home' element={<Home />}></Route>
+        <Route path='/blog' element={<BLog/>}></Route>
         <Route path='/inventory/:id' element={
           <RequireAuth>
             <Inventory></Inventory>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manageInventories' element={
+          <RequireAuth>
+              <ManageInventories></ManageInventories>
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<Login />}></Route>

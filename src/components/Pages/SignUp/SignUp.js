@@ -1,11 +1,10 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../../Firebase.init';
-import PageTitle from '../Shared/PageTittle/PageTitle';
-import googleLogo from '../../images/google-logo.png'
+import auth from '../../../Firebase.init';
+import PageTitle from '../../Shared/PageTittle/PageTitle';
+import googleLogo from '../../../images/google-logo.png'
 import { useForm } from 'react-hook-form';
-import { async } from '@firebase/util';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const SignUp = () => {
