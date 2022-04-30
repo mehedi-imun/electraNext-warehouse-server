@@ -1,4 +1,5 @@
 const cors = require('cors');
+const { query } = require('express');
 const express = require('express');
 const app = express()
 const port = process.env.PORT || 5000
@@ -67,8 +68,15 @@ async function run() {
       const result = await productCollection.insertOne(product)
       res.send(result)
 
+    });
+    // get item by email 
+    app.get('/myitems',async(req,res)=>{
+      const email = req.query.email
+      const  query = {email:email}
+      const cursor = productCollection.find(query) 
+      const result = await cursor.toArray()
+      res.send(result)
     })
-
 
   } finally {
     //   await client.close();
