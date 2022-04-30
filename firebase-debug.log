@@ -1,0 +1,98 @@
+[debug] [2022-04-30T11:23:59.630Z] ----------------------------------------------------------------------
+[debug] [2022-04-30T11:23:59.633Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\mahedi anik\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2022-04-30T11:23:59.634Z] CLI Version:   10.7.1
+[debug] [2022-04-30T11:23:59.634Z] Platform:      win32
+[debug] [2022-04-30T11:23:59.634Z] Node Version:  v16.15.0
+[debug] [2022-04-30T11:23:59.635Z] Time:          Sat Apr 30 2022 17:23:59 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-04-30T11:23:59.636Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-30T11:23:59.751Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-30T11:23:59.752Z] > authorizing via signed-in user (mahediimun@gmail.com)
+[debug] [2022-04-30T11:23:59.752Z] [iam] checking project electranext-6bbbe for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-04-30T11:23:59.754Z] > refreshing access token with scopes: []
+[debug] [2022-04-30T11:23:59.755Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-04-30T11:24:00.213Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","date":"Sat, 30 Apr 2022 11:24:00 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-04-30T11:24:00.236Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/electranext-6bbbe:testIamPermissions [none]
+[debug] [2022-04-30T11:24:00.237Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/electranext-6bbbe:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-04-30T11:24:02.185Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/electranext-6bbbe:testIamPermissions 200
+[debug] [2022-04-30T11:24:02.185Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/electranext-6bbbe:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2022-04-30T11:24:02.187Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/electranext-6bbbe [none]
+[debug] [2022-04-30T11:24:02.896Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/electranext-6bbbe 200
+[debug] [2022-04-30T11:24:02.896Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/electranext-6bbbe {"projectId":"electranext-6bbbe","projectNumber":"43309937987","displayName":"electraNext","name":"projects/electranext-6bbbe","resources":{"hostingSite":"electranext-6bbbe"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'electranext-6bbbe'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2022-04-30T11:24:02.901Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/electranext-6bbbe [none]
+[debug] [2022-04-30T11:24:03.570Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/electranext-6bbbe 200
+[debug] [2022-04-30T11:24:03.571Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/electranext-6bbbe {"projectId":"electranext-6bbbe","projectNumber":"43309937987","displayName":"electraNext","name":"projects/electranext-6bbbe","resources":{"hostingSite":"electranext-6bbbe"},"state":"ACTIVE"}
+[debug] [2022-04-30T11:24:03.574Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions [none]
+[debug] [2022-04-30T11:24:03.574Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2022-04-30T11:24:05.662Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions 200
+[debug] [2022-04-30T11:24:05.662Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions {"name":"projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[electranext-6bbbe]: beginning deploy... 
+[info] i  hosting[electranext-6bbbe]: found 19 files in build 
+[debug] [2022-04-30T11:24:05.682Z] [hosting] uploading with 200 concurrency
+[debug] [2022-04-30T11:24:06.019Z] [hosting] hash cache [YnVpbGQ] stored for 19 files
+[debug] [2022-04-30T11:24:06.020Z] [hosting][hash queue][FINAL] {"max":327,"min":6,"avg":45.63157894736842,"active":0,"complete":19,"success":19,"errored":0,"retried":0,"total":19,"elapsed":335}
+[debug] [2022-04-30T11:24:06.021Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b:populateFiles [none]
+[debug] [2022-04-30T11:24:06.021Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b:populateFiles {"files":{"/favicon.ico":"6f8a4a88589068da72cdc0e81d359522def340a1a6d4819724146d60cb4197a2","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/asset-manifest.json":"a9471af17ab758b689e8e63ad24d8a437b9e75869d856e6575637bad1e1965b3","/index.html":"07ef349599c3ed529f1a0237d1ad94d1ca2fb362d2651261d1e56806b1960f77","/static/js/787.9ebdd4f8.chunk.js":"ce31e7d5acbe4af5018bfa0ef84fd0ede14776334a34c7da38cbc6681b0040c0","/static/js/787.9ebdd4f8.chunk.js.map":"dceb5aba6fec5493e4d747ff60cd6457e9d7a0a99696ef7321bfa10c60a56e38","/static/js/main.272fdc29.js.LICENSE.txt":"980850d0c97fc4da1718320dcc140b4bafb239b14275f3a5d9640098e064ab8a","/static/media/google-logo.411f34ce50e71fc3cd8b.png":"c2cf238fc28fe6b0a80e4ccdaa3f63bea48f66076c17888e5e6da0f77e154374","/static/css/main.aa7958b1.css":"ef74ff2ac53efc93ea49861eb4422b37483ed965fde78fb500138bee59dd8492","/static/media/logo.c6c983b4d4e3ff14db2b.png":"16aaf12a0adc6713bc9cbf130c132a71896d5ab2b3f8979f78ce24aaa296ad79","/static/media/banner1.c1e25f3ac44f68784f90.png":"d7c37160651b3cc8b4596c7ab0e8508abd915da1370108552e653021a2927200","/static/media/banner2.e8bfd485650be4ec301d.png":"d8738b121823f0649d3c75b7c97f9b2f092995b4346d676c9b6efdef00710c82","/static/js/main.272fdc29.js":"71300b46cd37ded9fb34a91a9c8e8716d85ebc684f3bc3c618903922469dfe12","/static/media/banner3.f3a336eb621794febde9.png":"6725b6ad24b99e71748de65d155f33ec32d1c273025a76a18c2e1ac8de340790","/static/css/main.aa7958b1.css.map":"774b712007d87b9e43fbd556d91055e76e0fedae024573caafc12a536d97962d","/static/js/main.272fdc29.js.map":"b717063cdefd2cb2cdd895b6d2f999dd72cb5881bb767f19d035cee14b8e6ca2"}}
+[debug] [2022-04-30T11:24:07.913Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b:populateFiles 200
+[debug] [2022-04-30T11:24:07.913Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b:populateFiles {"uploadRequiredHashes":["b717063cdefd2cb2cdd895b6d2f999dd72cb5881bb767f19d035cee14b8e6ca2","07ef349599c3ed529f1a0237d1ad94d1ca2fb362d2651261d1e56806b1960f77","a9471af17ab758b689e8e63ad24d8a437b9e75869d856e6575637bad1e1965b3","71300b46cd37ded9fb34a91a9c8e8716d85ebc684f3bc3c618903922469dfe12"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files"}
+[debug] [2022-04-30T11:24:07.915Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/b717063cdefd2cb2cdd895b6d2f999dd72cb5881bb767f19d035cee14b8e6ca2 [none]
+[debug] [2022-04-30T11:24:07.916Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/b717063cdefd2cb2cdd895b6d2f999dd72cb5881bb767f19d035cee14b8e6ca2 [stream]
+[debug] [2022-04-30T11:24:07.917Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/07ef349599c3ed529f1a0237d1ad94d1ca2fb362d2651261d1e56806b1960f77 [none]
+[debug] [2022-04-30T11:24:07.917Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/07ef349599c3ed529f1a0237d1ad94d1ca2fb362d2651261d1e56806b1960f77 [stream]
+[debug] [2022-04-30T11:24:07.919Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/a9471af17ab758b689e8e63ad24d8a437b9e75869d856e6575637bad1e1965b3 [none]
+[debug] [2022-04-30T11:24:07.920Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/a9471af17ab758b689e8e63ad24d8a437b9e75869d856e6575637bad1e1965b3 [stream]
+[debug] [2022-04-30T11:24:07.922Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/71300b46cd37ded9fb34a91a9c8e8716d85ebc684f3bc3c618903922469dfe12 [none]
+[debug] [2022-04-30T11:24:07.922Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/71300b46cd37ded9fb34a91a9c8e8716d85ebc684f3bc3c618903922469dfe12 [stream]
+[debug] [2022-04-30T11:24:07.924Z] [hosting][populate queue][FINAL] {"max":1897,"min":1897,"avg":1897,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1906}
+[debug] [2022-04-30T11:24:07.925Z] [hosting] uploads queued: 4
+[debug] [2022-04-30T11:24:10.164Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/a9471af17ab758b689e8e63ad24d8a437b9e75869d856e6575637bad1e1965b3 200
+[debug] [2022-04-30T11:24:10.164Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/a9471af17ab758b689e8e63ad24d8a437b9e75869d856e6575637bad1e1965b3 [stream]
+[debug] [2022-04-30T11:24:10.606Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/b717063cdefd2cb2cdd895b6d2f999dd72cb5881bb767f19d035cee14b8e6ca2 200
+[debug] [2022-04-30T11:24:10.606Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/b717063cdefd2cb2cdd895b6d2f999dd72cb5881bb767f19d035cee14b8e6ca2 [stream]
+[debug] [2022-04-30T11:24:10.681Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/07ef349599c3ed529f1a0237d1ad94d1ca2fb362d2651261d1e56806b1960f77 200
+[debug] [2022-04-30T11:24:10.681Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/07ef349599c3ed529f1a0237d1ad94d1ca2fb362d2651261d1e56806b1960f77 [stream]
+[debug] [2022-04-30T11:24:10.998Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/71300b46cd37ded9fb34a91a9c8e8716d85ebc684f3bc3c618903922469dfe12 200
+[debug] [2022-04-30T11:24:10.998Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/electranext-6bbbe/versions/13157f0c27da3c0b/files/71300b46cd37ded9fb34a91a9c8e8716d85ebc684f3bc3c618903922469dfe12 [stream]
+[debug] [2022-04-30T11:24:10.998Z] [hosting][upload queue][FINAL] {"max":3083,"min":2249,"avg":2697.5,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":3084}
+[info] +  hosting[electranext-6bbbe]: file upload complete 
+[debug] [2022-04-30T11:24:10.999Z] [hosting] deploy completed after 5336ms
+[debug] [2022-04-30T11:24:11.004Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "electranext-6bbbe"
+    },
+    "site": "electranext-6bbbe",
+    "version": "projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b"
+  }
+]
+[info] i  hosting[electranext-6bbbe]: finalizing version... 
+[debug] [2022-04-30T11:24:11.007Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b updateMask=status%2Cconfig
+[debug] [2022-04-30T11:24:11.007Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2022-04-30T11:24:13.739Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b 200
+[debug] [2022-04-30T11:24:13.739Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b {"name":"projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-04-30T11:24:05.837643Z","createUser":{"email":"mahediimun@gmail.com"},"finalizeTime":"2022-04-30T11:24:14.226420Z","finalizeUser":{"email":"mahediimun@gmail.com"}}
+[debug] [2022-04-30T11:24:13.739Z] [hosting] finalized version for electranext-6bbbe:[object Object]
+[info] +  hosting[electranext-6bbbe]: version finalized 
+[info] i  hosting[electranext-6bbbe]: releasing new version... 
+[debug] [2022-04-30T11:24:13.742Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/releases versionName=projects%2F43309937987%2Fsites%2Felectranext-6bbbe%2Fversions%2F13157f0c27da3c0b
+[debug] [2022-04-30T11:24:13.742Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/releases {"message":null}
+[debug] [2022-04-30T11:24:15.862Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/releases 200
+[debug] [2022-04-30T11:24:15.863Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/43309937987/sites/electranext-6bbbe/releases {"name":"projects/43309937987/sites/electranext-6bbbe/releases/1651317855732424","version":{"name":"projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-04-30T11:24:05.837643Z","createUser":{"email":"mahediimun@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GjBdXC2aO3zbU4FuHtYO0JeOeoUO9XPOrwD65-0"},"finalizeTime":"2022-04-30T11:24:14.226420Z","finalizeUser":{"email":"mahediimun@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GjBdXC2aO3zbU4FuHtYO0JeOeoUO9XPOrwD65-0"}},"type":"DEPLOY","releaseTime":"2022-04-30T11:24:15.732424399Z","releaseUser":{"email":"mahediimun@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GjBdXC2aO3zbU4FuHtYO0JeOeoUO9XPOrwD65-0"}}
+[debug] [2022-04-30T11:24:15.863Z] [hosting] release: {"name":"projects/43309937987/sites/electranext-6bbbe/releases/1651317855732424","version":{"name":"projects/43309937987/sites/electranext-6bbbe/versions/13157f0c27da3c0b","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2022-04-30T11:24:05.837643Z","createUser":{"email":"mahediimun@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GjBdXC2aO3zbU4FuHtYO0JeOeoUO9XPOrwD65-0"},"finalizeTime":"2022-04-30T11:24:14.226420Z","finalizeUser":{"email":"mahediimun@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GjBdXC2aO3zbU4FuHtYO0JeOeoUO9XPOrwD65-0"}},"type":"DEPLOY","releaseTime":"2022-04-30T11:24:15.732424399Z","releaseUser":{"email":"mahediimun@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a-/AOh14GjBdXC2aO3zbU4FuHtYO0JeOeoUO9XPOrwD65-0"}}
+[info] +  hosting[electranext-6bbbe]: release complete 

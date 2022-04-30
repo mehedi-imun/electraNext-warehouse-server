@@ -14,7 +14,7 @@ const Inventory = () => {
             .then(data => setItem(data))
     }, []);
 
-    // increase quantity
+    // increase quantity when click delivered btn
 
     const handleDelivered = (updatedQuantity) => {
         const newQuantity = updatedQuantity - 1
@@ -60,9 +60,12 @@ const Inventory = () => {
 
     return (
         <div>
+            
             <PageTitle title='inventory'></PageTitle>
+            <div><h6 className='text-center mt-5'> Product id: {id}</h6> </div>
             <div className='mt-5'>
-                <div style={{ marginBottom: '50px' }} className='card-body d-flex justify-content-center '>
+                
+                <div style={{ marginBottom: '50px' }}className='card-body d-flex justify-content-center '>
                     <div className="card">
                         <div className="imgBox">
                             <img src={img} alt="" />
@@ -70,6 +73,7 @@ const Inventory = () => {
                         <div className="content">
                             <div className="details">
                                 <h2>{name?.slice(0, 20)}</h2>
+                        
                                 <p>{description?.slice(0, 100)}</p>
                                 <div className="data">
                                     <h3>$ {price} <br /> <span>Price</span></h3>
