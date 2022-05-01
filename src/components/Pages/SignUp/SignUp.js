@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../../Shared/Loading/Loading';
 const SignUp = () => {
     let errorTag;
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || "/";
@@ -58,7 +58,10 @@ const SignUp = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                
             });
+            // on submit reset input
+            reset()
 
         } else {
             toast.error('password mismatch', {

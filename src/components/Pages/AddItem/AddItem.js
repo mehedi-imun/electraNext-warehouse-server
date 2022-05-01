@@ -6,7 +6,7 @@ import auth from '../../../Firebase.init';
 import PageTitle from '../../Shared/PageTittle/PageTitle';
 const AddItem = () => {
     const [user, error] = useAuthState(auth);
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit,reset } = useForm();
     const onSubmit = async (data) => {
         fetch('https://secure-sands-19636.herokuapp.com/product',{
             method:'POST',
@@ -23,8 +23,12 @@ const AddItem = () => {
                     'please check your item page',
                     'success'
                   )
+                  // on submit reset input
+                  reset()
             }
         })
+        
+        
     };
 
     return (
