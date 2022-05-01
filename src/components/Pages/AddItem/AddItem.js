@@ -8,7 +8,7 @@ const AddItem = () => {
     const [user, error] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const onSubmit = async (data) => {
-        fetch('http://localhost:5000/product',{
+        fetch('https://secure-sands-19636.herokuapp.com/product',{
             method:'POST',
             headers: {
                 'content-type': 'application/json'

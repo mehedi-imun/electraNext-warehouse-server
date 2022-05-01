@@ -2,7 +2,7 @@
 
 This is project link [electraNext](https://electranext-6bbbe.firebaseapp.com/).
 
-# description : this is a full stack warehouse management website . if you create a new account this website , you can be deliver any product, manage inventory, add new product, delete any product. verify user jwt. 
+## description : this is a full stack warehouse management website . if you create a new account this website , you can be deliver any product, manage inventory, add new product, delete any product. verify user jwt. 
 
 ### face error : i am most face error and handle error this website . because iam use  backend - express,node, mongodb, technology , thats why  need to handle error.
 #### most handle error  this website:

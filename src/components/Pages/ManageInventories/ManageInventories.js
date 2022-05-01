@@ -8,7 +8,7 @@ const ManageInventories = () => {
     const navigate = useNavigate()
     const [items, setItems] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://secure-sands-19636.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
@@ -23,7 +23,7 @@ const ManageInventories = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `http://localhost:5000/item/${id}`;
+                const url = `https://secure-sands-19636.herokuapp.com/product/${id}`;
                 fetch(url, {
                     method: 'DELETE'
                 })

@@ -6,7 +6,7 @@ const InventoryItems = () => {
     const [items, setItems] = useState([])
     useEffect(() => {
         const getItems = async ()=>{
-            const url = `http://localhost:5000/myitems`
+            const url = `https://secure-sands-19636.herokuapp.com/product/`
             const {data} = await axios.get(url)
             setItems(data)
         }
