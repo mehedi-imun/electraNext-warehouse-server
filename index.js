@@ -37,7 +37,7 @@ async function run() {
 
     });
     // update item
-    app.put('/item/:id',async(req,res)=>{
+    app.put('/product/:id',async(req,res)=>{
       const id = req.params.id;
       const updateItems = req.body;
       const quantity = updateItems.newQuantity
@@ -55,7 +55,7 @@ async function run() {
 
     })
     // delete item by id
-    app.delete('/item/:id', async (req,res)=>{
+    app.delete('/product/:id', async (req,res)=>{
       const id =  req.params.id
       const query = { _id: ObjectId(id) };
       const result = await productCollection.deleteOne(query);
@@ -86,7 +86,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-  res.send('elecktric warhouse server is running')
+  res.send('electraNext warehouse server is running')
 })
 app.listen(port, () => {
   console.log('lesten port ', port);
