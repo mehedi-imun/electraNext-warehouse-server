@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PageTitle from '../../Shared/PageTittle/PageTitle';
 import Swal from 'sweetalert2';
 import ManageInventoriesCard from './ManageInventoriesCard';
 import { IoMdAddCircleOutline } from 'react-icons/io';
@@ -45,6 +46,7 @@ const ManageInventories = () => {
     }
     return (
         <div>
+            <PageTitle title='manageInventory'></PageTitle>
             <h5 className='text-center mt-3'>manage all  items</h5>
             <p className='text-center'> Total product:{items.length}</p>
             <div className='text-center '>

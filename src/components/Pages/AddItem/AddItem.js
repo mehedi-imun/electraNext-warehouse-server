@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import auth from '../../../Firebase.init';
-
+import PageTitle from '../../Shared/PageTittle/PageTitle';
 const AddItem = () => {
     const [user, error] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
@@ -29,6 +29,7 @@ const AddItem = () => {
 
     return (
         <div className='container'>
+            <PageTitle title='add item'></PageTitle>
             <h4 className='text-center my-5'>Add new item</h4>
             <form className='d-flex flex-column mt-2 align-items-center' onSubmit={handleSubmit(onSubmit)}>
                 <input

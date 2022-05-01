@@ -7,8 +7,10 @@ import googleLogo from '../../../images/google-logo.png'
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../../Shared/Loading/Loading';
 const SignUp = () => {
     let errorTag;
+    const { register, handleSubmit } = useForm();
     const location = useLocation()
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || "/";
@@ -27,10 +29,14 @@ const SignUp = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     // error 
-    if (error) {
+    if (error || googleError) {
 
         errorTag = <p className='text-danger'>Error: {error.message}</p>;
 
+    }
+    // loading
+    if (loading || googleLoading) {
+        return <Loading></Loading>
     }
     // navigate user 
     if (user || googleUser) {
@@ -38,7 +44,7 @@ const SignUp = () => {
     }
 
     // get input value and create user
-    const { register, handleSubmit } = useForm();
+    
     const onSubmit = async (data) => {
         const { name, email, password, confirmPassword } = data;
         if (password === confirmPassword) {

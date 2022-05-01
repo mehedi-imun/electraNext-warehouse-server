@@ -1,0 +1,9 @@
+.notFoundBody{
+    height: 80vh;
+    background-image: url(../../../images/404.gif);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+    
+}

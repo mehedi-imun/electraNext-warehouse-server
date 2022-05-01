@@ -6,7 +6,7 @@ import googleLogo from '../../../images/google-logo.png'
 import PageTitle from '../../Shared/PageTittle/PageTitle';
 import './Login.css'
 import auth from '../../../Firebase.init';
-import { Spinner } from 'react-bootstrap';
+import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
     let errorTag;
@@ -36,13 +36,11 @@ const Login = () => {
 
     // loading
     if (googleLoading || loading) {
-        return (
-            <div> <Spinner animation="grow" /></div>
-        )
+        return <Loading></Loading>
     }
        // error tag 
 
-    if (error) {
+    if (error || googleError) {
 
         errorTag = <p className='text-danger'>Error: {error.message}</p>;
 

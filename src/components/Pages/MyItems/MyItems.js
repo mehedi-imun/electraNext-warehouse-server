@@ -1,4 +1,4 @@
-import { async } from '@firebase/util';
+import PageTitle from '../../Shared/PageTittle/PageTitle';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -7,7 +7,7 @@ import auth from '../../../Firebase.init';
 import ManageInventoriesCard from '../ManageInventories/ManageInventoriesCard';
 
 const MyItems = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [items, setItems] = useState([]);
     useEffect(() => {
         const getMyItems = async () => {
@@ -53,6 +53,7 @@ const MyItems = () => {
     }
     return (
         <div>
+            <PageTitle title='my item'></PageTitle>
             <h5 className='text-center my-5'>My item {items.length}</h5>
             <div className='d-flex  flex-column align-items-center ' >
                 {
