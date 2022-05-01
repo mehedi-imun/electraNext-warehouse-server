@@ -22,7 +22,7 @@ async function run() {
     await client.connect();
     const productCollection = client.db("warehouseProducts").collection('products');
     // get all product
-    app.get('/products', async (req, res) => {
+    app.get('/product', async (req, res) => {
       const query = {};
       const cursor = productCollection.find(query);
       const result = await cursor.toArray()
