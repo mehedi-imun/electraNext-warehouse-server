@@ -1,0 +1,25 @@
+.process-box-body {
+  width: 70%;
+  margin: 0 auto;
+}
+.process-box {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgb(123, 123, 123);
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 2px;
+}
+.process-box svg {
+  width: 40%;
+  height: 40%;
+  font-size: 20px !important;
+  color: #fc9314;
+}
+.process-box-body h6 {
+  margin: 0;
+  padding: 0;
+  margin-top: -15px;
+  text-transform: capitalize;
+}
