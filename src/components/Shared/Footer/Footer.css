@@ -1,0 +1,20 @@
+.footer{
+
+    background-color: rgb(0, 0, 0);
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 50px;
+   
+
+}
+
+.navItem a:hover {
+    color: #fc9314 !important;
+
+}
+.socialItem svg:hover {
+    color: #fc9314 !important;
+
+}

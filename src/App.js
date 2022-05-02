@@ -12,6 +12,7 @@ import ManageInventories from './components/Pages/ManageInventories/ManageInvent
 import BLog from './components/Pages/Blog/BLog';
 import AddItem from './components/Pages/AddItem/AddItem';
 import MyItems from './components/Pages/MyItems/MyItems';
+import Footer from './components/Shared/Footer/Footer';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path='/forgotPassword' element={<ForgotPassword />}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
