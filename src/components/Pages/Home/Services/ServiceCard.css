@@ -1,0 +1,30 @@
+
+.service-body{
+    background-color: rgb(244, 244, 244);
+    
+}
+.service-container{
+    width: 70%;
+    
+    
+}
+.service{
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+.service img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+    
+}
+.service h4{
+    font-size: 18px;
+    text-transform: capitalize;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
