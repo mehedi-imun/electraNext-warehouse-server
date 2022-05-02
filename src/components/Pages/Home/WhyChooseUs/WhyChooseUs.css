@@ -1,0 +1,21 @@
+.why-choose{
+    height: 350px;
+    background-image: url(../../../../images/why\ choose\ background.png),
+    linear-gradient(to right ,rgba(117, 117, 117),rgba(255, 255, 255, 0.488));
+    background-blend-mode:hue;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+.why-choose-container{
+    width: 80%;
+    margin: auto;
+    font-weight: 500;
+}
+.btn-discover{
+    width: 200px;
+    background-color: #ff9900 !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+}
