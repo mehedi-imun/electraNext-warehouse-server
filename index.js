@@ -21,6 +21,7 @@ async function run() {
   try {
     await client.connect();
     const productCollection = client.db("warehouseProducts").collection('products');
+    const serviceCollection = client.db("warehouseProducts").collection('service');
     // get all product
     app.get('/product', async (req, res) => {
       const query = {};
@@ -76,7 +77,14 @@ async function run() {
       const cursor = productCollection.find(query) 
       const result = await cursor.toArray()
       res.send(result)
-    })
+    });
+    // warehouse management service data
+    app.get('/service', async (req, res) => {
+      const query = {};
+      const cursor = serviceCollection.find(query);
+      const result = await cursor.toArray()
+      res.send(result)
+    });
 
   } finally {
     //   await client.close();
