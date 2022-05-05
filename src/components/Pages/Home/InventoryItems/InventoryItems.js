@@ -12,7 +12,6 @@ const InventoryItems = () => {
         }
         getItems()
     }, [])
-    const sliceItems = items?.slice(0,6)
     return (
         <div>
             <h4 className='text-center my-3'>Inventory Items</h4>
@@ -22,7 +21,7 @@ const InventoryItems = () => {
             
             <div className='d-flex flex-wrap justify-content-between mt-5'>
                 {
-                    sliceItems.map(item => <ItemsCard
+                   items.map(item => <ItemsCard
                     key={item._id}
                     item={item}
                     >

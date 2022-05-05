@@ -5,10 +5,10 @@ import styles from './ManageInventories.module.css'
 const ManageInventoriesCard = ({ item,handleDeleteItem }) => {
     const { name, img,_id } = item;
     return (
-        <div>
-            <div className={styles.cardContainer}>
+            <div>
+                <div className={styles.cardContainer}>
                 <div className={styles.cardDetails}>
-                    <img className='cardImg m-2 img-fluid' src={img} alt="" />
+                    <img className='cardImg m-2 ' src={img} alt="" />
                     <h4 className='cardName m-2'>{name}</h4>
                     <button 
                         onClick={()=>{handleDeleteItem(_id)}}
@@ -17,7 +17,7 @@ const ManageInventoriesCard = ({ item,handleDeleteItem }) => {
                     </button>
                 </div>
             </div>
-        </div>
+            </div>
     );
 };
 

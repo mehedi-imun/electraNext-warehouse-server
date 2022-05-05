@@ -7,11 +7,26 @@ import { useNavigate } from 'react-router-dom';
 const ManageInventories = () => {
     const navigate = useNavigate()
     const [items, setItems] = useState([])
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0)
+
+    // product count 
     useEffect(() => {
-        fetch('https://secure-sands-19636.herokuapp.com/product')
+        fetch('https://secure-sands-19636.herokuapp.com/productcount')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const page = Math.ceil(count / 6)
+                setPageCount(page)
+            })
+    }, []);
+    // fetch api with query and get page wise product
+    useEffect(() => {
+        fetch(`https://secure-sands-19636.herokuapp.com/allproduct?page=${page}`)
             .then(res => res.json())
             .then(data => setItems(data))
-    }, [])
+    }, [page])
+
     const handleDeleteItem = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -37,23 +52,22 @@ const ManageInventories = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-
                         }
                     })
             }
         })
-
     }
     return (
         <div>
             <PageTitle title='manageInventory'></PageTitle>
             <h5 className='text-center mt-3'>manage all  items</h5>
-            <p className='text-center'> Total product:{items.length}</p>
             <div className='text-center '>
-                <button 
-                    onClick={()=>navigate('/addItem')}
-                    style={{ backgroundColor: '#ff9900', 
-                    fontWeight: '500' }}
+                <button
+                    onClick={() => navigate('/addItem')}
+                    style={{
+                        backgroundColor: '#ff9900',
+                        fontWeight: '500'
+                    }}
                     className='btn border text-white'>
                     Add item
                     <IoMdAddCircleOutline className='fs-4 ms-2'></IoMdAddCircleOutline>
@@ -68,6 +82,21 @@ const ManageInventories = () => {
                         handleDeleteItem={handleDeleteItem}
                     >
                     </ManageInventoriesCard>)
+                }
+            </div>
+            <div className='d-flex justify-content-center'>
+                {
+                    [...Array(pageCount).keys()].map(number =>
+                        <button
+                            onClick={() => setPage(number)}
+                            style={{
+                                backgroundColor: '#fc9314',
+                                color: '#fff', border: '1px solid #7F7F7F',
+                                margin: '0 5px'
+                            }}
+                            className={page === number ? ' bg-dark' : ""}>
+                            {number+1}
+                        </button>)
                 }
             </div>
         </div>
