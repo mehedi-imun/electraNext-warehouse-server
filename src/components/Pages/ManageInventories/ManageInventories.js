@@ -16,7 +16,7 @@ const ManageInventories = () => {
             .then(res => res.json())
             .then(data => {
                 const count = data.count;
-                const page = Math.ceil(count / 6)
+                const page = Math.ceil(count / 10)
                 setPageCount(page)
             })
     }, []);
@@ -84,7 +84,7 @@ const ManageInventories = () => {
                     </ManageInventoriesCard>)
                 }
             </div>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center flex-wrap '>
                 {
                     [...Array(pageCount).keys()].map(number =>
                         <button
@@ -92,9 +92,9 @@ const ManageInventories = () => {
                             style={{
                                 backgroundColor: '#fc9314',
                                 color: '#fff', border: '1px solid #7F7F7F',
-                                margin: '0 5px'
+                                margin: '5px'
                             }}
-                            className={page === number ? ' bg-dark' : ""}>
+                            className={page === number ? ' bg-dark ' : ""}>
                             {number+1}
                         </button>)
                 }
