@@ -39,13 +39,28 @@ async function run() {
     await client.connect();
     const productCollection = client.db("warehouseProducts").collection('products');
     const serviceCollection = client.db("warehouseProducts").collection('service');
-    // get all product
+    // get 6 product for home page 
     app.get('/product', async (req, res) => {
       const query = {};
       const cursor = productCollection.find(query);
-      const result = await cursor.toArray()
+      const result = await cursor.limit(6).toArray()
       res.send(result)
     });
+    // get all product for manage inventory with pagination
+    app.get('/allproduct', async (req, res) => {
+      const query = {};
+      const page = parseInt(req.query.page);
+      const cursor = productCollection.find(query);
+      const result = await cursor.skip(page * 6).limit(6).toArray()
+      res.send(result)
+    });
+
+    // product count 
+    app.get('/productcount', async (req, res) => {
+      const count = await productCollection.estimatedDocumentCount ()
+      res.send({ count })
+    });
+
     // get product by id
     app.get('/product/:id', async (req, res) => {
       const id = req.params.id;
