@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../../Shared/Loading/Loading';
+import useToken from '../../hooks/useToken/useToken';
 const SignUp = () => {
     let errorTag;
     const { register, handleSubmit,reset } = useForm();
@@ -27,6 +28,8 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    // get token and send user
+    const [token]= useToken(user || googleUser)
 
     // error 
     if (error || googleError) {
@@ -39,8 +42,8 @@ const SignUp = () => {
         return <Loading></Loading>
     }
     // navigate user 
-    if (user || googleUser) {
-        // navigate(from, { replace: true });
+    if (token) {
+        navigate(from, { replace: true });
     }
 
     // get input value and create user
@@ -81,7 +84,6 @@ const SignUp = () => {
     // google auth
     const handleGoogleLogin = async () => {
         await signInWithGoogle()
-        navigate(from, { replace: true });
 
     }
     return (

@@ -8,7 +8,6 @@ import auth from '../../../Firebase.init';
 import logo from '../../../images/logo.png'
 const Header = () => {
     const [user] = useAuthState(auth);
-    console.log(user?.photoURL);
     return (
         <Navbar style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', backdropFilter: "blur(5px)" }} sticky='top' collapseOnSelect expand="lg" variant='light'>
             <Container>

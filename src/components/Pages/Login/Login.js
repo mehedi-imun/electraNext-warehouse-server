@@ -1,21 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {useSignInWithEmailAndPassword, useSignInWithGoogle  } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../../images/google-logo.png'
 import PageTitle from '../../Shared/PageTittle/PageTitle';
 import './Login.css'
 import auth from '../../../Firebase.init';
 import Loading from '../../Shared/Loading/Loading';
+import axios from 'axios';
+import useToken from '../../hooks/useToken/useToken';
 
 const Login = () => {
     let errorTag;
     const location = useLocation()
     const navigate = useNavigate()
+    
     const from = location.state?.from?.pathname || "/";
     // google signup 
-    const [signInWithGoogle, 
-        googleUser, googleLoading, 
+    const [signInWithGoogle,
+        googleUser, googleLoading,
         googleError] = useSignInWithGoogle(auth);
 
     // sign in with email and pass auth 
@@ -26,40 +29,40 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    //get token
+    const [token]=useToken(user || googleUser)
+
     // get input value and log in user
     const { register, handleSubmit } = useForm();
-    const onSubmit =async (data) => {
-        const {email,password} = data;
+    const onSubmit = async (loginData) => {
+        const { email, password } = loginData;
         await signInWithEmailAndPassword(email, password)
-
+        
     };
 
     // loading
     if (googleLoading || loading) {
         return <Loading></Loading>
     }
-       // error tag 
-
+    // error tag 
     if (error || googleError) {
 
         errorTag = <p className='text-danger'>Error: {error.message}</p>;
 
     }
-    if(user ||googleUser){
+
+    if (token) {
         navigate(from, { replace: true });
-        
     }
 
-    
+
 
     // google auth
     const handleGoogleLogin = async () => {
         await signInWithGoogle()
-        navigate(from, { replace: true });
-
     }
     return (
-        
+
         <div className='w-50 mx-auto '>
             <PageTitle title='login'></PageTitle>
             <h4 className='text-center mt-5'>Log in</h4>
@@ -91,14 +94,14 @@ const Login = () => {
             </div>
             <div className='d-flex justify-content-center '>
                 <button
-                    onClick={()=>handleGoogleLogin()}
+                    onClick={() => handleGoogleLogin()}
                     className=' input-felid btn bold border
                 '>
                     <img style={{ width: '40px' }} src={googleLogo} alt="" />
                     continue with google
                 </button>
             </div>
-            
+
         </div>
     );
 };

@@ -5,16 +5,51 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Swal from 'sweetalert2';
 import auth from '../../../Firebase.init';
 import ManageInventoriesCard from '../ManageInventories/ManageInventoriesCard';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const MyItems = () => {
+    const navigate = useNavigate()
     const [user] = useAuthState(auth);
     const [items, setItems] = useState([]);
     useEffect(() => {
         const getMyItems = async () => {
-            const email = user.email
-            const url = `https://secure-sands-19636.herokuapp.com/myitems?email=${email}`
-            const { data } = await axios.get(url)
-            setItems(data)
+
+            const token = localStorage.getItem('accessToken')
+            const email = user.email;
+            const url =  `https://secure-sands-19636.herokuapp.com/myitems?email=${email}`;
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `bearer ${token}`
+                    }
+                });
+                setItems(data)
+            }
+            catch (error) {
+                if (error.response.status === 403) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops... 403',
+                        text: 'forbidden access your token is invalid!',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    signOut(auth)
+                    navigate('/login')
+
+                }
+                if (error.response.status === 401) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops... 401',
+                        text: 'unauthorize!',
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                    signOut(auth)
+                    navigate('/login')
+                }
+
+            }
         }
         getMyItems()
 
@@ -44,13 +79,11 @@ const MyItems = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-
                         }
                     })
             }
-        })
-
-    }
+        });
+    };
     return (
         <div>
             <PageTitle title='my item'></PageTitle>

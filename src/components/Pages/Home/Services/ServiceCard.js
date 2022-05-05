@@ -2,7 +2,6 @@ import React from 'react';
 import './ServiceCard.css'
 const ServiceCard = ({service}) => {
     const {name,img}= service;
-    // console.log(img);
     return (
         <div className='col-md-4 col-6 d-flex justify-content-center '>
             <div className='service d-flex flex-column align-items-center justify-content-between text-center'>
