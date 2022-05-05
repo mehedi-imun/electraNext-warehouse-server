@@ -51,7 +51,7 @@ async function run() {
       const query = {};
       const page = parseInt(req.query.page);
       const cursor = productCollection.find(query);
-      const result = await cursor.skip(page * 6).limit(6).toArray()
+      const result = await cursor.skip(page * 10).limit(10).toArray()
       res.send(result)
     });
 
