@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Loading from '../../../Shared/Loading/Loading';
-import ServiceCard from './ServiceCard';
+
 
 const Services = () => {
     const [services,setServices]=useState([])
